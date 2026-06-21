@@ -1,7 +1,7 @@
 
-1. [ ] sell things
-1. [ ] cancel contract
-1. [ ] find vacation spot
+1. [x] sell things
+1. [x] cancel contract
+1. [x] find vacation spot
 1. [ ] 
 1. [ ] 
 1. [ ] 
