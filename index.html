@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Egypt Vacation Plans — From Bahrain to Giza</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:   #C9A84C;
+      --sand:   #E8D5A3;
+      --cream:  #FAF7F2;
+      --brown:  #5C3D2E;
+      --dark:   #2C1810;
+      --text:   #3D2B1F;
+      --muted:  #7A6652;
+      --green:  #2E9E6B;
+      --blue:   #2E6FA8;
+      --orange: #D4831A;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(44, 24, 16, 0.95);
+      backdrop-filter: blur(6px);
+      display: flex;
+      gap: 0;
+      padding: 0 1.5rem;
+      align-items: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    }
+    nav .brand {
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--gold);
+      padding: 1rem 0;
+      margin-right: auto;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    nav a {
+      color: #D9C9A8;
+      text-decoration: none;
+      padding: 1rem 1rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 520px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 60%;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(28,14,7,0.85) 0%, rgba(28,14,7,0.15) 60%);
+    }
+    .hero-text {
+      position: relative;
+      padding: 2.5rem 3rem;
+      color: #fff;
+      max-width: 760px;
+    }
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: normal;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .hero-text h1 span { color: var(--gold); }
+    .hero-text p {
+      margin-top: 0.75rem;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      font-style: italic;
+    }
+    .hero-badges {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1.1rem;
+    }
+    .badge {
+      padding: 0.3rem 0.8rem;
+      border-radius: 99px;
+      font-size: 0.75rem;
+      font-family: sans-serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .badge-gold  { background: var(--gold);   color: var(--dark); }
+    .badge-outline { border: 1px solid rgba(255,255,255,0.5); color: rgba(255,255,255,0.85); }
+
+    /* ── SECTION WRAPPER ── */
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: normal;
+      color: var(--brown);
+      border-left: 4px solid var(--gold);
+      padding-left: 1rem;
+      margin-bottom: 0.4rem;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-style: italic;
+      margin-bottom: 2.2rem;
+      padding-left: 1.25rem;
+    }
+    .divider {
+      border: none;
+      border-top: 1px solid #D9C9A8;
+      margin: 0;
+    }
+
+    /* ── BAHRAIN CARDS ── */
+    .bahrain-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 720px) { .bahrain-grid { grid-template-columns: 1fr; } }
+
+    .bcard {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .bcard:hover { transform: translateY(-3px); box-shadow: 0 6px 24px rgba(0,0,0,0.13); }
+
+    .bcard-img-wrap {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #8B6914 0%, #C9A84C 50%, #E8D5A3 100%);
+    }
+    .bcard-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .bcard:hover .bcard-img-wrap img { transform: scale(1.04); }
+    .bcard-img-placeholder {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .bcard-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .bcard-body h3 { font-size: 1.2rem; color: var(--brown); margin-bottom: 0.5rem; }
+    .bcard-body p  { font-size: 0.88rem; color: var(--muted); flex: 1; }
+
+    .steps {
+      margin: 1rem 0;
+      padding: 0;
+      list-style: none;
+    }
+    .steps li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.83rem;
+      color: var(--text);
+      padding: 0.3rem 0;
+      border-bottom: 1px dashed #E8DDD0;
+    }
+    .steps li:last-child { border-bottom: none; }
+    .step-num {
+      flex-shrink: 0;
+      width: 1.4rem;
+      height: 1.4rem;
+      background: var(--gold);
+      color: var(--dark);
+      border-radius: 50%;
+      font-size: 0.7rem;
+      font-weight: bold;
+      font-family: sans-serif;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.2rem;
+    }
+    .ext-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-family: sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.15s;
+    }
+    .ext-link:hover { opacity: 0.82; transform: translateY(-1px); }
+    .ext-link-gov  { background: #E8F0E8; color: #2E6B2E; border: 1px solid #B8D8B8; }
+    .ext-link-sell { background: #FFF3E0; color: #B35A00; border: 1px solid #FFD699; }
+    .ext-link-info { background: #E3EEF9; color: #1A5C9A; border: 1px solid #B3D0F0; }
+
+    /* ── TRIPS FILTER BAR ── */
+    .filter-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .filter-btn {
+      padding: 0.4rem 1rem;
+      border-radius: 99px;
+      border: 1px solid #D9C9A8;
+      background: #fff;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-family: sans-serif;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--brown);
+      color: #fff;
+      border-color: var(--brown);
+    }
+
+    /* ── TRIP CARDS GRID ── */
+    .trips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tcard {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .tcard:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(0,0,0,0.13); }
+
+    .tcard-img-wrap {
+      position: relative;
+      height: 180px;
+      overflow: hidden;
+    }
+    .tcard-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .tcard:hover .tcard-img-wrap img { transform: scale(1.06); }
+
+    .img-ph {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .score-badge {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: sans-serif;
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .score-green  { background: #1E8A57; }
+    .score-blue   { background: #1A5FA8; }
+    .score-orange { background: #C47B00; }
+    .score-gray   { background: #7A8B8B; }
+
+    .rank-badge {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      font-family: sans-serif;
+      color: #fff;
+    }
+
+    .tcard-body {
+      padding: 1.1rem 1.2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .tcard-body h3 {
+      font-size: 1.05rem;
+      color: var(--brown);
+      margin-bottom: 0.2rem;
+    }
+    .tcard-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-family: sans-serif;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .tcard-desc {
+      font-size: 0.84rem;
+      color: #5C4B3C;
+      flex: 1;
+      line-height: 1.55;
+    }
+    .tcard-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #EDE4D8;
+    }
+    .tcard-tags {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+    .tag {
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-family: sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .tag-hist   { background: #FFF0CC; color: #7A5700; }
+    .tag-nature { background: #E0F4EA; color: #1A6B3A; }
+    .tag-city   { background: #E8F0FF; color: #1A3B8A; }
+    .tag-relig  { background: #F5E8FF; color: #5B1A8A; }
+    .tag-market { background: #FFE8E8; color: #8A1A1A; }
+
+    .wiki-link {
+      font-size: 0.78rem;
+      font-family: sans-serif;
+      color: var(--blue);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color 0.15s;
+    }
+    .wiki-link:hover { color: var(--dark); text-decoration: underline; }
+
+    /* ── LEADERBOARD ── */
+    .leaderboard {
+      margin-top: 3rem;
+      background: var(--dark);
+      border-radius: 12px;
+      padding: 2rem;
+      color: #D9C9A8;
+    }
+    .leaderboard h3 {
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      font-weight: normal;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .lb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 0.4rem;
+    }
+    .lb-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.83rem;
+      font-family: sans-serif;
+      transition: background 0.15s;
+    }
+    .lb-row:hover { background: rgba(255,255,255,0.06); }
+    .lb-rank { width: 1.5rem; color: var(--gold); font-weight: bold; text-align: right; }
+    .lb-name { flex: 1; }
+    .lb-score { font-weight: 700; }
+    .sc-g { color: #4DCC90; }
+    .sc-b { color: #6DB8F0; }
+    .sc-o { color: #F0B84D; }
+
+    /* ── PRACTICAL TIPS ── */
+    .tips-box {
+      background: #FFF8EC;
+      border: 1px solid #E8D5A3;
+      border-radius: 10px;
+      padding: 1.5rem 2rem;
+      margin-top: 2rem;
+    }
+    .tips-box h4 {
+      font-size: 1rem;
+      color: var(--brown);
+      margin-bottom: 0.8rem;
+      font-family: sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .tips-box ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 2rem;
+    }
+    @media (max-width: 600px) { .tips-box ul { grid-template-columns: 1fr; } }
+    .tips-box li {
+      font-size: 0.85rem;
+      color: var(--text);
+      padding-left: 1.2rem;
+      position: relative;
+    }
+    .tips-box li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      font-family: sans-serif;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="brand">Egypt Vacation Plans</span>
+  <a href="#bahrain">Leaving Bahrain</a>
+  <a href="#trips">Day Trips</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/All_Gizah_Pyramids.jpg/1280px-All_Gizah_Pyramids.jpg"
+    alt="The Giza Pyramid Complex at sunset"
+    onerror="this.style.display='none'; document.querySelector('.hero-fallback').style.display='block'"
+  >
+  <div class="hero-fallback" style="display:none; position:absolute; inset:0; background: linear-gradient(135deg,#2C1810,#8B6914,#C9A84C);"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-text">
+    <h1>From <span>Bahrain</span> to <span>Giza</span></h1>
+    <p>Your complete pre-departure guide and Egypt travel companion</p>
+    <div class="hero-badges">
+      <span class="badge badge-gold">3 Guides</span>
+      <span class="badge badge-outline">20 Day Trips</span>
+      <span class="badge badge-outline">5,000 Years of History</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 1 — LEAVING BAHRAIN
+════════════════════════════════════════════════ -->
+<hr class="divider">
+<section class="section" id="bahrain">
+  <h2 class="section-title">Preparing to Leave Bahrain</h2>
+  <p class="section-sub">Two essential guides for a clean, stress-free departure</p>
+
+  <div class="bahrain-grid">
+
+    <!-- Card A: Cancel Contract -->
+    <div class="bcard">
+      <div class="bcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Manama_Bahrain.jpg/1280px-Manama_Bahrain.jpg"
+          alt="Manama, Bahrain skyline"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="bcard-img-placeholder" style="background:linear-gradient(135deg,#1A3A5C,#2E6FA8,#5B9ED0);">🏢</div>
+      </div>
+      <div class="bcard-body">
+        <h3>Cancel Your Work Contract (Al Moyaed)</h3>
+        <p>A step-by-step legal guide for expat developers resigning from a Bahraini employer — covering notice periods, EOSB, visa status, and dispute resolution.</p>
+
+        <ul class="steps">
+          <li><span class="step-num">1</span> Review your contract: duration, notice period & non-compete clauses</li>
+          <li><span class="step-num">2</span> Submit formal resignation in writing — email + hard copy with proof</li>
+          <li><span class="step-num">3</span> Complete the clearance form — return assets, hand over projects</li>
+          <li><span class="step-num">4</span> Collect EOSB, unused leave payout & experience letter</li>
+          <li><span class="step-num">5</span> Check work permit cancellation on LMRA within 90 days</li>
+          <li><span class="step-num">6</span> Transfer to new employer, apply for FWP, or depart Bahrain</li>
+        </ul>
+
+        <div class="link-row">
+          <a class="ext-link ext-link-gov" href="https://www.lmra.bh" target="_blank" rel="noopener">🔗 LMRA Portal</a>
+          <a class="ext-link ext-link-gov" href="https://www.mlsd.gov.bh" target="_blank" rel="noopener">🔗 Ministry of Labour</a>
+          <a class="ext-link ext-link-gov" href="https://www.gfbtu.org.bh" target="_blank" rel="noopener">🔗 GFBTU Worker Support</a>
+          <a class="ext-link ext-link-info" href="https://en.wikipedia.org/wiki/Labour_law_in_Bahrain" target="_blank" rel="noopener">📖 Bahrain Labour Law</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card B: Sell Belongings -->
+    <div class="bcard">
+      <div class="bcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Souq_in_Manama%2C_Bahrain.jpg/1280px-Souq_in_Manama%2C_Bahrain.jpg"
+          alt="Bahrain market"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="bcard-img-placeholder" style="background:linear-gradient(135deg,#5C3300,#C9A84C,#E8D5A3);">🛋️</div>
+      </div>
+      <div class="bcard-body">
+        <h3>Sell Your Belongings — 30-Day Guide</h3>
+        <p>A week-by-week liquidation plan. Speed matters more than perfect prices. High-value items first, bundles second, bulk clearance last.</p>
+
+        <ul class="steps">
+          <li><span class="step-num">W1</span> Inventory everything; photograph & list high-value items immediately</li>
+          <li><span class="step-num">W2</span> Bundle mid-value lots; post daily in Bahrain Facebook groups</li>
+          <li><span class="step-num">W3</span> Drop prices 20–30%; add "MUST SELL — Travelling Soon"; hold open-day</li>
+          <li><span class="step-num">W4</span> Visit secondhand shops in Salmabad; donate remainder to charity</li>
+        </ul>
+
+        <div class="link-row">
+          <a class="ext-link ext-link-sell" href="https://bh.opensooq.com" target="_blank" rel="noopener">🛒 OpenSooq BH</a>
+          <a class="ext-link ext-link-sell" href="https://bahrain.dubizzle.com" target="_blank" rel="noopener">🛒 Dubizzle Bahrain</a>
+          <a class="ext-link ext-link-info" href="https://www.facebook.com/groups/search/results/?q=bahrain+buy+sell" target="_blank" rel="noopener">👥 Facebook Groups</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 2 — GIZA DAY TRIPS
+════════════════════════════════════════════════ -->
+<hr class="divider">
+<section class="section" id="trips">
+  <h2 class="section-title">20 Best Day Trips from Giza</h2>
+  <p class="section-sub">All within 1 hour's drive — scored on history, access, facilities, uniqueness & family friendliness</p>
+
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterTrips('all', this)">All (20)</button>
+    <button class="filter-btn" onclick="filterTrips('history', this)">Historical</button>
+    <button class="filter-btn" onclick="filterTrips('nature', this)">Nature</button>
+    <button class="filter-btn" onclick="filterTrips('city', this)">City</button>
+    <button class="filter-btn" onclick="filterTrips('top', this)">Score ≥ 8.5</button>
+  </div>
+
+  <div class="trips-grid" id="trips-grid">
+
+    <!-- 1. Saqqara -->
+    <div class="tcard" data-cats="history">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Saqqara_BW_2.jpg/640px-Saqqara_BW_2.jpg"
+          alt="Saqqara Step Pyramid"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#8B6914,#C9A84C);">🏛️</div>
+        <div class="rank-badge">1</div>
+        <div class="score-badge score-green">9.4 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Saqqara Necropolis</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~30 min south</span>
+          <span>Full day recommended</span>
+        </div>
+        <p class="tcard-desc">Oldest stone monument complex on Earth. Step Pyramid of Djoser (2650 BC), Pyramid Texts, Serapeum galleries, and dozens of mastaba tombs with vivid reliefs. 2023 Grand Saqqara upgrades dramatically improved access.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-hist">Ancient Egypt</span>
+            <span class="tag tag-hist">Pyramids</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Saqqara" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Grand Egyptian Museum -->
+    <div class="tcard" data-cats="history city">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Grand_Egyptian_Museum_Atrium.jpg/640px-Grand_Egyptian_Museum_Atrium.jpg"
+          alt="Grand Egyptian Museum"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#2C1810,#8B4513);">🏛️</div>
+        <div class="rank-badge">2</div>
+        <div class="score-badge score-green">9.1 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Grand Egyptian Museum (GEM)</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~15 min (Fayoum Rd)</span>
+          <span>Book tickets online</span>
+        </div>
+        <p class="tcard-desc">World's largest archaeological museum. The complete Tutankhamun collection (5,000+ objects), a 10m Ramesses II colossus, and the Solar Boat of Khufu. Opened 2023–2025. Plan a full day.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-hist">Tutankhamun</span>
+            <span class="tag tag-city">Museum</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Grand_Egyptian_Museum" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Dahshur -->
+    <div class="tcard" data-cats="history">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Snefru%27s_Bent_Pyramid_in_Dahshur.jpg/640px-Snefru%27s_Bent_Pyramid_in_Dahshur.jpg"
+          alt="Bent Pyramid at Dahshur"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#6B4500,#D4A843);">△</div>
+        <div class="rank-badge">3</div>
+        <div class="score-badge score-green">9.0 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Dahshur Pyramid Field</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~40 min south</span>
+          <span>Almost no crowds</span>
+        </div>
+        <p class="tcard-desc">The Bent Pyramid (unique double-angle, casing almost intact) and the Red Pyramid (Egypt's first true smooth-sided pyramid, fully climbable inside). Stunning desert photography and pristine landscapes.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-hist">Old Kingdom</span>
+            <span class="tag tag-hist">Pyramids</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Dahshur" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Egyptian Museum Tahrir -->
+    <div class="tcard" data-cats="history city">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Cairo_-_Egyptian_Museum_-_exterior.jpg/640px-Cairo_-_Egyptian_Museum_-_exterior.jpg"
+          alt="Egyptian Museum Cairo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#8B2000,#E05020);">🏛️</div>
+        <div class="rank-badge">4</div>
+        <div class="score-badge score-green">8.8 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Egyptian Museum (Tahrir)</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~20 min</span>
+          <span>Book online</span>
+        </div>
+        <p class="tcard-desc">120,000+ objects including Tutankhamun's Treasure, royal mummies, the Narmer Palette, and Amarna art. The 1902 pink building is itself historic. The royal mummies hall alone justifies the trip.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-hist">Mummies</span>
+            <span class="tag tag-city">Museum</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Egyptian_Museum" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Lake Qarun -->
+    <div class="tcard" data-cats="nature">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Lake_Qarun.jpg/640px-Lake_Qarun.jpg"
+          alt="Lake Qarun, Fayoum"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#005577,#00AABB);">🌊</div>
+        <div class="rank-badge">5</div>
+        <div class="score-badge score-green">8.7 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Lake Qarun (Birket Qarun) — Fayoum</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~55 min (Desert Rd)</span>
+          <span>Flamingos in season</span>
+        </div>
+        <p class="tcard-desc">42 km natural saltwater lake (ancient Lake Moeris). Flamingos, herons, migrating ducks. Fish restaurants on the north shore serve grilled tilapia. Extraordinary sunsets over the Sahara dunes.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-nature">Birdwatching</span>
+            <span class="tag tag-nature">Lake</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Lake_Qarun" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. Coptic Cairo -->
+    <div class="tcard" data-cats="history city relig">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/HangingChurch.jpg/640px-HangingChurch.jpg"
+          alt="Hanging Church, Coptic Cairo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#3D1A6B,#7B4FC8);">⛪</div>
+        <div class="rank-badge">6</div>
+        <div class="score-badge score-blue">8.6 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Coptic Cairo (Old Cairo)</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~20 min via Corniche</span>
+          <span>Walkable compact area</span>
+        </div>
+        <p class="tcard-desc">Roman fortress of Babylon with the Hanging Church (Al-Muallaqah), Church of Saints Sergius and Bacchus (Holy Family shelter), Ben Ezra Synagogue, and the Coptic Museum — world's finest Coptic art collection.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-relig">Coptic</span>
+            <span class="tag tag-hist">Roman</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Coptic_Cairo" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. Memphis -->
+    <div class="tcard" data-cats="history">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/MIT_Rahina_004.jpg/640px-MIT_Rahina_004.jpg"
+          alt="Ramesses II statue at Memphis"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#5C3A00,#B87A00);">🗿</div>
+        <div class="rank-badge">7</div>
+        <div class="score-badge score-blue">8.5 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Memphis Open-Air Museum (Mit Rahina)</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~30 min south</span>
+          <span>Pairs with Saqqara</span>
+        </div>
+        <p class="tcard-desc">Ruins of ancient Memphis, Egypt's first capital. The colossal recumbent Ramesses II statue — one of the finest New Kingdom sculptures anywhere — plus an alabaster sphinx and embalming tables in a shaded garden.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-hist">New Kingdom</span>
+            <span class="tag tag-hist">Sculpture</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Memphis,_Egypt" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. Wadi El-Rayan -->
+    <div class="tcard" data-cats="nature">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Wadi_El_Rayan_Waterfall.jpg/640px-Wadi_El_Rayan_Waterfall.jpg"
+          alt="Wadi El-Rayan Waterfalls"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#006644,#00CC88);">💧</div>
+        <div class="rank-badge">8</div>
+        <div class="score-badge score-blue">8.5 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Wadi El-Rayan Waterfalls & Lakes — Fayoum</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~1 hour (Desert Rd)</span>
+          <span>UNESCO-adjacent</span>
+        </div>
+        <p class="tcard-desc">Egypt's only natural waterfalls — a cascade between two desert lakes. Dunes, sand foxes, reed-fringed shores, ATV rentals, and camping. Wadi El-Hitan whale fossil UNESCO site is 30 min further.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-nature">Waterfalls</span>
+            <span class="tag tag-nature">Desert</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Wadi_el-Rayan" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Cairo Citadel -->
+    <div class="tcard" data-cats="history city">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Saladin_Citadel_of_Cairo_003.jpg/640px-Saladin_Citadel_of_Cairo_003.jpg"
+          alt="Cairo Citadel and Muhammad Ali Mosque"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#3A1A00,#8B4513);">🕌</div>
+        <div class="rank-badge">9</div>
+        <div class="score-badge score-blue">8.4 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Cairo Citadel (Saladin's Citadel)</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~25 min</span>
+          <span>Best Cairo panorama</span>
+        </div>
+        <p class="tcard-desc">Built by Saladin in 1176. Home to the stunning Muhammad Ali Mosque (Ottoman alabaster interior) and a 270° panorama of Cairo with the Giza pyramids visible on clear days.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-hist">Medieval</span>
+            <span class="tag tag-relig">Ottoman</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Cairo_Citadel" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10. Khan el-Khalili -->
+    <div class="tcard" data-cats="city history">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Khan_el-Khalili_1.jpg/640px-Khan_el-Khalili_1.jpg"
+          alt="Khan el-Khalili bazaar"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#4A2800,#9B5E00);">🧿</div>
+        <div class="rank-badge">10</div>
+        <div class="score-badge score-blue">8.3 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Khan el-Khalili & Islamic Cairo</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~30 min</span>
+          <span>1,000 years in 1 km</span>
+        </div>
+        <p class="tcard-desc">Medieval Fatimid heart of Cairo: Khan el-Khalili bazaar (est. 1382), Al-Azhar Mosque, and Al-Muizz Street — one of the world's greatest open-air Islamic architecture museums. Spice market and copper workshops.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-hist">Fatimid</span>
+            <span class="tag tag-market">Bazaar</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Khan_el-Khalili" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. Wadi Natrun -->
+    <div class="tcard" data-cats="history relig nature">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Deir_Anba_Bishoy.jpg/640px-Deir_Anba_Bishoy.jpg"
+          alt="Deir Anba Bishoi, Wadi Natrun"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#2A3A5A,#4A7AAA);">✝️</div>
+        <div class="rank-badge">11</div>
+        <div class="score-badge score-blue">8.2 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Wadi Natrun Monasteries</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~55 min northwest</span>
+          <span>Living since 4th century AD</span>
+        </div>
+        <p class="tcard-desc">Four Coptic monasteries continuously inhabited since the 300s AD: Deir Anba Bishoi, Deir El-Suriani, Deir Baramus, and Deir Abu Maqar. Ancient fortress walls, medieval towers, rock-cut chapels, extraordinary painted icons.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-relig">Coptic</span>
+            <span class="tag tag-hist">Byzantine</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Wadi_El_Natrun" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12. Abusir -->
+    <div class="tcard" data-cats="history">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Abusir_Pyramids.jpg/640px-Abusir_Pyramids.jpg"
+          alt="Abusir Pyramid Complex"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#7A5A00,#C9A84C);">△</div>
+        <div class="rank-badge">12</div>
+        <div class="score-badge score-blue">8.0 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Abusir Pyramid Complex</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~25 min south</span>
+          <span>Rarely crowded</span>
+        </div>
+        <p class="tcard-desc">Four 5th-Dynasty pyramids and the Sun Temple of Niuserre. Walk freely among the ruins in pristine desert. The causeway of Sahure's pyramid is one of the best-preserved in Egypt. Ideal half-day add-on to Saqqara.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-hist">5th Dynasty</span>
+            <span class="tag tag-hist">Off-Beat</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Abusir" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 13. Al-Azhar Park -->
+    <div class="tcard" data-cats="city nature">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Al-Azhar_Park%2C_Cairo.jpg/640px-Al-Azhar_Park%2C_Cairo.jpg"
+          alt="Al-Azhar Park, Cairo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#1A5C2A,#4DAA66);">🌿</div>
+        <div class="rank-badge">13</div>
+        <div class="score-badge score-orange">7.9 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Al-Azhar Park</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~30 min</span>
+          <span>Aga Khan Trust project</span>
+        </div>
+        <p class="tcard-desc">Hilltop park with panoramic views of Islamic Cairo's minarets, Andalusian gardens, a lake, and excellent restaurants. The view of the Citadel and Sultan Hassan Mosque from the terrace is iconic. Cairo's finest green space.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-city">Park</span>
+            <span class="tag tag-nature">Gardens</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Al-Azhar_Park" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14. Tunis Village -->
+    <div class="tcard" data-cats="nature city">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Tunis_Fayoum.jpg/640px-Tunis_Fayoum.jpg"
+          alt="Tunis Village, Fayoum"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#8B4A00,#D48A3A);">🏺</div>
+        <div class="rank-badge">14</div>
+        <div class="score-badge score-orange">7.8 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Tunis Village — Fayoum</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~55 min</span>
+          <span>Artists' pottery village</span>
+        </div>
+        <p class="tcard-desc">A small artists' village on Lake Qarun shores, famous for pottery workshops and boutique eco-lodges. A Swiss-Egyptian ceramics school transformed it into a creative hub. Pottery classes, farm-to-table food, and total tranquillity.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-city">Arts</span>
+            <span class="tag tag-nature">Lake</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Tunis,_Fayoum" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15. Fayoum / Karanis -->
+    <div class="tcard" data-cats="history">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Kom_Ushim%2C_Egypt.jpg/640px-Kom_Ushim%2C_Egypt.jpg"
+          alt="Karanis (Kom Ushim), Fayoum"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#4A3300,#8B6600);">🏛️</div>
+        <div class="rank-badge">15</div>
+        <div class="score-badge score-orange">7.7 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Fayoum City & Karanis (Kom Ushim)</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~55 min</span>
+          <span>Greco-Roman ruins</span>
+        </div>
+        <p class="tcard-desc">Well-preserved Greco-Roman town with two temples and visible street layouts from 300 BC–400 AD. Fayoum city adds the famous waterwheels (Qalabsha), lively bazaar, and street food stalls with konafa and sugarcane juice.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-hist">Greco-Roman</span>
+            <span class="tag tag-market">Food</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Karanis" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16. Wadi Degla -->
+    <div class="tcard" data-cats="nature">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Wadi_Degla_Protected_Area.jpg/640px-Wadi_Degla_Protected_Area.jpg"
+          alt="Wadi Degla Protectorate canyon"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#5A4A00,#B89A00);">🏜️</div>
+        <div class="rank-badge">16</div>
+        <div class="score-badge score-orange">7.6 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Wadi Degla Protectorate</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~35 min southeast</span>
+          <span>Cairo's best hike</span>
+        </div>
+        <p class="tcard-desc">Desert canyon with limestone cliffs, fossil beds, and wildlife: desert foxes, Egyptian mongoose, migratory raptors. A trail runs through the canyon. Go at sunrise or late afternoon. Back home in 40 minutes.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-nature">Hiking</span>
+            <span class="tag tag-nature">Wildlife</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Wadi_Degla_Protectorate" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17. Birqash Camel Market -->
+    <div class="tcard" data-cats="city">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Camel_market_Birqash.jpg/640px-Camel_market_Birqash.jpg"
+          alt="Birqash Camel Market"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#4A3000,#9B7000);">🐪</div>
+        <div class="rank-badge">17</div>
+        <div class="score-badge score-orange">7.5 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Birqash Camel Market (Souq el-Gamaal)</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~45 min north</span>
+          <span>Fridays before 9 AM</span>
+        </div>
+        <p class="tcard-desc">Largest camel market in MENA. Hundreds of camels arrive from Sudan via the ancient Darb el-Arba'in trail. Raw, real, and chaotic — not a tourist show. An unforgettable spectacle for photographers.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-market">Market</span>
+            <span class="tag tag-city">Local</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Birqash_Camel_Market" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 18. Petrified Forest -->
+    <div class="tcard" data-cats="nature">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Petrified_wood_cairo.jpg/640px-Petrified_wood_cairo.jpg"
+          alt="Petrified Forest near Cairo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#5C4A3A,#A08070);">🌳</div>
+        <div class="rank-badge">18</div>
+        <div class="score-badge score-orange">7.2 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Petrified Forest — Maadi Desert</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~35 min (Ring Rd east)</span>
+          <span>35 million years old</span>
+        </div>
+        <p class="tcard-desc">35-million-year-old petrified tree trunks (up to 30 m long) scattered across the desert — the world's largest such deposit. Within Wadi Degla Protected Area. Free to enter. Genuinely alien landscape.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-nature">Geology</span>
+            <span class="tag tag-nature">Fossils</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Petrified_Forest_of_Cairo" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 19. Helwan -->
+    <div class="tcard" data-cats="city nature">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Japanese_Garden_Helwan_Cairo.jpg/640px-Japanese_Garden_Helwan_Cairo.jpg"
+          alt="Japanese Garden, Helwan"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#1A4A1A,#3A8A3A);">🌸</div>
+        <div class="rank-badge">19</div>
+        <div class="score-badge score-gray">6.8 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Helwan Mineral Springs & Gardens</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~40 min south</span>
+          <span>Belle Époque resort town</span>
+        </div>
+        <p class="tcard-desc">Once fashionable resort town with a large Japanese Garden (one of Cairo's biggest parks), mineral spring spa, small astronomy observatory, and Nile-side promenade. The Japanese Garden is a genuine surprise — free and well-maintained.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-nature">Gardens</span>
+            <span class="tag tag-city">Historic</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Helwan" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 20. Maadi -->
+    <div class="tcard" data-cats="city">
+      <div class="tcard-img-wrap">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Maadi_nile_corniche.jpg/640px-Maadi_nile_corniche.jpg"
+          alt="Maadi Corniche, Cairo"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+        >
+        <div class="img-ph" style="background:linear-gradient(135deg,#003355,#006699);">🏡</div>
+        <div class="rank-badge">20</div>
+        <div class="score-badge score-gray">6.5 / 10</div>
+      </div>
+      <div class="tcard-body">
+        <h3>Maadi Corniche & Maadi District</h3>
+        <div class="tcard-meta">
+          <span>🚗 ~25 min</span>
+          <span>Zero planning needed</span>
+        </div>
+        <p class="tcard-desc">Cairo's most verdant residential district, developed by a British company in the early 1900s. Calm Nile Corniche, excellent cafes, the Maadi Yacht Club, and tree-lined streets. The best "easy reset" option on the list.</p>
+        <div class="tcard-footer">
+          <div class="tcard-tags">
+            <span class="tag tag-city">Dining</span>
+            <span class="tag tag-city">Relaxed</span>
+          </div>
+          <a class="wiki-link" href="https://en.wikipedia.org/wiki/Maadi" target="_blank" rel="noopener">Wikipedia →</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /trips-grid -->
+
+  <!-- LEADERBOARD -->
+  <div class="leaderboard">
+    <h3>Score Leaderboard</h3>
+    <div class="lb-grid">
+      <div class="lb-row"><span class="lb-rank">#1</span><span class="lb-name">Saqqara Necropolis</span><span class="lb-score sc-g">9.4</span></div>
+      <div class="lb-row"><span class="lb-rank">#2</span><span class="lb-name">Grand Egyptian Museum</span><span class="lb-score sc-g">9.1</span></div>
+      <div class="lb-row"><span class="lb-rank">#3</span><span class="lb-name">Dahshur Pyramids</span><span class="lb-score sc-g">9.0</span></div>
+      <div class="lb-row"><span class="lb-rank">#4</span><span class="lb-name">Egyptian Museum (Tahrir)</span><span class="lb-score sc-g">8.8</span></div>
+      <div class="lb-row"><span class="lb-rank">#5</span><span class="lb-name">Lake Qarun — Fayoum</span><span class="lb-score sc-g">8.7</span></div>
+      <div class="lb-row"><span class="lb-rank">#6</span><span class="lb-name">Coptic Cairo</span><span class="lb-score sc-b">8.6</span></div>
+      <div class="lb-row"><span class="lb-rank">#7</span><span class="lb-name">Memphis Open-Air Museum</span><span class="lb-score sc-b">8.5</span></div>
+      <div class="lb-row"><span class="lb-rank">#8</span><span class="lb-name">Wadi El-Rayan Waterfalls</span><span class="lb-score sc-b">8.5</span></div>
+      <div class="lb-row"><span class="lb-rank">#9</span><span class="lb-name">Cairo Citadel</span><span class="lb-score sc-b">8.4</span></div>
+      <div class="lb-row"><span class="lb-rank">#10</span><span class="lb-name">Khan el-Khalili</span><span class="lb-score sc-b">8.3</span></div>
+      <div class="lb-row"><span class="lb-rank">#11</span><span class="lb-name">Wadi Natrun Monasteries</span><span class="lb-score sc-b">8.2</span></div>
+      <div class="lb-row"><span class="lb-rank">#12</span><span class="lb-name">Abusir Pyramids</span><span class="lb-score sc-b">8.0</span></div>
+      <div class="lb-row"><span class="lb-rank">#13</span><span class="lb-name">Al-Azhar Park</span><span class="lb-score sc-o">7.9</span></div>
+      <div class="lb-row"><span class="lb-rank">#14</span><span class="lb-name">Tunis Village — Fayoum</span><span class="lb-score sc-o">7.8</span></div>
+      <div class="lb-row"><span class="lb-rank">#15</span><span class="lb-name">Fayoum City & Karanis</span><span class="lb-score sc-o">7.7</span></div>
+      <div class="lb-row"><span class="lb-rank">#16</span><span class="lb-name">Wadi Degla Protectorate</span><span class="lb-score sc-o">7.6</span></div>
+      <div class="lb-row"><span class="lb-rank">#17</span><span class="lb-name">Birqash Camel Market</span><span class="lb-score sc-o">7.5</span></div>
+      <div class="lb-row"><span class="lb-rank">#18</span><span class="lb-name">Petrified Forest</span><span class="lb-score sc-o">7.2</span></div>
+      <div class="lb-row"><span class="lb-rank">#19</span><span class="lb-name">Helwan Springs & Gardens</span><span class="lb-score sc-o">6.8</span></div>
+      <div class="lb-row"><span class="lb-rank">#20</span><span class="lb-name">Maadi Corniche</span><span class="lb-score sc-o">6.5</span></div>
+    </div>
+  </div>
+
+  <!-- TIPS -->
+  <div class="tips-box">
+    <h4>Practical Tips</h4>
+    <ul>
+      <li><strong>Best season:</strong> October–April — summer heat makes outdoor sites brutal before 9 AM or after 4 PM</li>
+      <li><strong>Traffic:</strong> Friday morning is best; Thursday evening and weekends on the Ring Road can double travel times</li>
+      <li><strong>Tickets:</strong> Book GEM and Egyptian Museum online — weekend queues can be very long</li>
+      <li><strong>Fayoum cluster:</strong> Karanis + Lake Qarun + Tunis Village + Wadi El-Rayan in 1–2 nights</li>
+      <li><strong>Southern combo:</strong> Saqqara + Dahshur + Memphis covers 5,000 years in one drive</li>
+      <li><strong>Birqash:</strong> Go on Friday, arrive before 9 AM — the market winds down by noon</li>
+    </ul>
+  </div>
+
+</section><!-- /section trips -->
+
+<!-- FOOTER -->
+<footer>
+  <p>
+    Sources: <a href="https://www.lmra.bh" target="_blank" rel="noopener">LMRA</a> ·
+    <a href="https://www.mlsd.gov.bh" target="_blank" rel="noopener">Ministry of Labour Bahrain</a> ·
+    <a href="https://bh.opensooq.com" target="_blank" rel="noopener">OpenSooq</a> ·
+    <a href="https://bahrain.dubizzle.com" target="_blank" rel="noopener">Dubizzle</a> ·
+    <a href="https://en.wikipedia.org/wiki/Giza" target="_blank" rel="noopener">Wikipedia / Giza</a>
+    · Photos via <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> (CC licenses)
+  </p>
+  <p style="margin-top:0.5rem;">Egypt Vacation Plans — Personal travel & relocation guide</p>
+</footer>
+
+<script>
+  function filterTrips(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    document.querySelectorAll('.tcard').forEach(card => {
+      if (cat === 'all') {
+        card.style.display = '';
+        return;
+      }
+      if (cat === 'top') {
+        const score = parseFloat(card.querySelector('.score-badge').textContent);
+        card.style.display = score >= 8.5 ? '' : 'none';
+        return;
+      }
+      const cats = card.dataset.cats || '';
+      card.style.display = cats.includes(cat) ? '' : 'none';
+    });
+  }
+</script>
+
+</body>
+</html>
