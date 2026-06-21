@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Egypt Vacation Plans — From Bahrain to Giza</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -21,10 +24,15 @@
     }
 
     body {
-      font-family: 'Georgia', serif;
+      font-family: 'Inter', sans-serif;
       background: var(--cream);
       color: var(--text);
       line-height: 1.65;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    h1, h2, h3, .section-title, .leaderboard h3 {
+      font-family: 'Playfair Display', serif;
     }
 
     /* ── NAV ── */
@@ -59,6 +67,23 @@
       transition: color 0.2s;
     }
     nav a:hover { color: var(--gold); }
+
+    .theme-toggle {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 99px;
+      color: #D9C9A8;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.35rem 0.75rem;
+      margin-left: 0.5rem;
+      transition: background 0.2s, border-color 0.2s;
+      line-height: 1;
+    }
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--gold);
+    }
 
     /* ── HERO ── */
     .hero {
@@ -491,6 +516,78 @@
     }
     footer a { color: var(--gold); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
+
+    /* ── DARK MODE ── */
+    html[data-theme="dark"] {
+      --cream:  #16110D;
+      --brown:  #D4A870;
+      --text:   #DDD0B8;
+      --muted:  #9A8070;
+      --sand:   #3D2B1F;
+      --dark:   #0D0905;
+    }
+    html[data-theme="dark"] body {
+      background: #16110D;
+      color: #DDD0B8;
+    }
+    html[data-theme="dark"] .bcard,
+    html[data-theme="dark"] .tcard {
+      background: #231711;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.5);
+    }
+    html[data-theme="dark"] .bcard-body h3,
+    html[data-theme="dark"] .tcard-body h3 {
+      color: #D4A870;
+    }
+    html[data-theme="dark"] .bcard-body p {
+      color: #9A8070;
+    }
+    html[data-theme="dark"] .tcard-desc {
+      color: #B0A088;
+    }
+    html[data-theme="dark"] .tcard-meta {
+      color: #9A8070;
+    }
+    html[data-theme="dark"] .tcard-footer {
+      border-top-color: #3A2518;
+    }
+    html[data-theme="dark"] .steps li {
+      color: #C0A888;
+      border-bottom-color: #3A2518;
+    }
+    html[data-theme="dark"] .section-sub {
+      color: #9A8070;
+    }
+    html[data-theme="dark"] .divider {
+      border-color: #3A2518;
+    }
+    html[data-theme="dark"] .filter-btn {
+      background: #231711;
+      border-color: #4D3020;
+      color: #9A8070;
+    }
+    html[data-theme="dark"] .filter-btn:hover,
+    html[data-theme="dark"] .filter-btn.active {
+      background: #6B3D1A;
+      color: #E0C898;
+      border-color: #6B3D1A;
+    }
+    html[data-theme="dark"] .tips-box {
+      background: #1D1108;
+      border-color: #3A2518;
+    }
+    html[data-theme="dark"] .tips-box h4 { color: #D4A870; }
+    html[data-theme="dark"] .tips-box li { color: #C0A888; }
+    html[data-theme="dark"] .ext-link-gov  { background: #0E1E0E; color: #7ACA7A; border-color: #1E3E1E; }
+    html[data-theme="dark"] .ext-link-sell { background: #231100; color: #D49050; border-color: #3D2200; }
+    html[data-theme="dark"] .ext-link-info { background: #081525; color: #6AABDD; border-color: #112A45; }
+    html[data-theme="dark"] .wiki-link     { color: #6AABDD; }
+    html[data-theme="dark"] .tag-hist   { background: #2A1F00; color: #C9A84C; }
+    html[data-theme="dark"] .tag-nature { background: #001A08; color: #5ACA7A; }
+    html[data-theme="dark"] .tag-city   { background: #001025; color: #6AABDD; }
+    html[data-theme="dark"] .tag-relig  { background: #160022; color: #BB7AEE; }
+    html[data-theme="dark"] .tag-market { background: #220008; color: #EE7A7A; }
+    html[data-theme="dark"] footer { background: #0D0905; color: rgba(255,255,255,0.35); }
   </style>
 </head>
 <body>
@@ -500,6 +597,7 @@
   <span class="brand">Egypt Vacation Plans</span>
   <a href="#bahrain">Leaving Bahrain</a>
   <a href="#trips">Day Trips</a>
+  <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="Toggle dark mode">🌙</button>
 </nav>
 
 <!-- HERO -->
@@ -1252,15 +1350,33 @@
 </footer>
 
 <script>
+  // ── Theme toggle ──
+  function applyTheme(dark) {
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    const btn = document.getElementById('theme-btn');
+    if (btn) btn.textContent = dark ? '☀️' : '🌙';
+  }
+
+  function toggleTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    applyTheme(!isDark);
+    localStorage.setItem('egypt-theme', isDark ? 'light' : 'dark');
+  }
+
+  // Restore saved preference or follow system
+  (function () {
+    const saved = localStorage.getItem('egypt-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    applyTheme(saved ? saved === 'dark' : prefersDark);
+  })();
+
+  // ── Trip filter ──
   function filterTrips(cat, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
     document.querySelectorAll('.tcard').forEach(card => {
-      if (cat === 'all') {
-        card.style.display = '';
-        return;
-      }
+      if (cat === 'all') { card.style.display = ''; return; }
       if (cat === 'top') {
         const score = parseFloat(card.querySelector('.score-badge').textContent);
         card.style.display = score >= 8.5 ? '' : 'none';

@@ -46,3 +46,30 @@ i  live in giza egypt best 20 spots that are 1 hour drive away from me for vacat
 
 did not copy
 
+
+# create index
+
+
+```
+ based on mds in @_worktable/docs\  create an index html with actrual photos and external links
+```
+
+`index.html` is created at the project root. Here's what's in it:
+
+**Structure:**
+- **Sticky nav** linking to both sections
+- **Hero** — full-width Giza Pyramids photo (Wikimedia Commons) with overlay text
+- **"Leaving Bahrain" section** — two side-by-side cards:
+  - *Cancel your contract* — 6 numbered steps + external links to LMRA, Ministry of Labour, GFBTU, and Bahrain Labour Law Wikipedia
+  - *Sell your belongings* — week-by-week steps + links to OpenSooq, Dubizzle, and Facebook groups search
+- **"20 Day Trips from Giza" section** — full card grid with:
+  - Wikimedia Commons photos for each destination (with graceful colored-gradient fallbacks via `onerror`)
+  - Score badges (color-coded green/blue/orange/gray)
+  - Rank numbers, drive time, description, category tags
+  - Wikipedia links for every location
+  - Filter buttons (All / Historical / Nature / City / Score ≥ 8.5)
+  - Score leaderboard table
+  - Practical tips grid
+- **Footer** with all external source links
+
+All images load from Wikimedia Commons; any that return 404 silently swap to a matching gradient placeholder so the layout never breaks.
