@@ -588,6 +588,115 @@
     html[data-theme="dark"] .tag-relig  { background: #160022; color: #BB7AEE; }
     html[data-theme="dark"] .tag-market { background: #220008; color: #EE7A7A; }
     html[data-theme="dark"] footer { background: #0D0905; color: rgba(255,255,255,0.35); }
+
+    /* ── ASSESSMENT SECTION ── */
+    .assess-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 3rem;
+      margin-bottom: 2.5rem;
+    }
+    @media (max-width: 700px) { .assess-grid { grid-template-columns: 1fr; } }
+
+    .assess-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .assess-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 0.87rem;
+      font-family: sans-serif;
+    }
+    .assess-label span:first-child { color: var(--text); font-weight: 500; }
+    .assess-label .assess-val {
+      font-weight: 700;
+      font-size: 0.95rem;
+      font-family: sans-serif;
+    }
+    .assess-bar-track {
+      height: 8px;
+      background: #E8DDD0;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .assess-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      width: 0;
+      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .bar-green  { background: linear-gradient(to right, #2E9E6B, #5ACCA0); }
+    .bar-blue   { background: linear-gradient(to right, #2E6FA8, #5B9ED0); }
+    .bar-orange { background: linear-gradient(to right, #C9A84C, #E8C870); }
+    .bar-amber  { background: linear-gradient(to right, #D4831A, #F0B050); }
+
+    .assess-note {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: sans-serif;
+      font-style: italic;
+    }
+
+    .overall-score-box {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      background: var(--dark);
+      border-radius: 12px;
+      padding: 1.8rem 2.2rem;
+      color: #D9C9A8;
+      flex-wrap: wrap;
+    }
+    .overall-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      font-weight: normal;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .overall-num sup { font-size: 1.8rem; vertical-align: super; }
+    .overall-details { flex: 1; min-width: 180px; }
+    .overall-details h4 {
+      font-size: 1rem;
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-weight: normal;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .overall-details p {
+      font-size: 0.85rem;
+      color: rgba(217,201,168,0.75);
+      line-height: 1.6;
+      font-family: sans-serif;
+    }
+    .verdict-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.9rem;
+    }
+    .verdict-pill {
+      padding: 0.25rem 0.75rem;
+      border-radius: 99px;
+      font-size: 0.72rem;
+      font-family: sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .vp-green  { background: rgba(46,158,107,0.25); color: #5ACCA0; border: 1px solid rgba(46,158,107,0.4); }
+    .vp-blue   { background: rgba(46,111,168,0.25); color: #6AABDD; border: 1px solid rgba(46,111,168,0.4); }
+    .vp-gold   { background: rgba(201,168,76,0.2);  color: var(--gold); border: 1px solid rgba(201,168,76,0.35); }
+
+    html[data-theme="dark"] .assess-bar-track { background: #3A2518; }
+    html[data-theme="dark"] .assess-label span:first-child { color: #C0A888; }
+    html[data-theme="dark"] .assess-note { color: #7A6652; }
   </style>
 </head>
 <body>
@@ -595,6 +704,7 @@
 <!-- NAV -->
 <nav>
   <span class="brand">Egypt Vacation Plans</span>
+  <a href="#assessment">Assessment</a>
   <a href="#bahrain">Leaving Bahrain</a>
   <a href="#trips">Day Trips</a>
   <button class="theme-toggle" onclick="toggleTheme()" id="theme-btn" title="Toggle dark mode">🌙</button>
@@ -619,6 +729,110 @@
     </div>
   </div>
 </div>
+
+<!-- ══════════════════════════════════════════════
+     SECTION 0 — SCORED ASSESSMENT
+════════════════════════════════════════════════ -->
+<hr class="divider">
+<section class="section" id="assessment">
+  <h2 class="section-title">Egypt Vacation — Scored Assessment</h2>
+  <p class="section-sub">8 dimensions rated for a Bahrain-based traveller heading to Giza</p>
+
+  <div class="assess-grid">
+
+    <div class="assess-row">
+      <div class="assess-label">
+        <span>Historical &amp; Cultural Value</span>
+        <span class="assess-val" style="color:#2E9E6B;">9.5 / 10</span>
+      </div>
+      <div class="assess-bar-track"><div class="assess-bar-fill bar-green" data-pct="95"></div></div>
+      <span class="assess-note">Pyramids, Pharaonic tombs, Islamic Cairo, Coptic heritage — unrivalled depth</span>
+    </div>
+
+    <div class="assess-row">
+      <div class="assess-label">
+        <span>Variety of Experiences</span>
+        <span class="assess-val" style="color:#2E9E6B;">9.2 / 10</span>
+      </div>
+      <div class="assess-bar-track"><div class="assess-bar-fill bar-green" data-pct="92"></div></div>
+      <span class="assess-note">Ancient ruins, desert nature, museums, markets, city life, food</span>
+    </div>
+
+    <div class="assess-row">
+      <div class="assess-label">
+        <span>Budget Friendliness</span>
+        <span class="assess-val" style="color:#2E9E6B;">9.0 / 10</span>
+      </div>
+      <div class="assess-bar-track"><div class="assess-bar-fill bar-green" data-pct="90"></div></div>
+      <span class="assess-note">Exceptional value for Gulf residents — weak EGP vs BHD/USD makes costs very low</span>
+    </div>
+
+    <div class="assess-row">
+      <div class="assess-label">
+        <span>Accessibility from Bahrain</span>
+        <span class="assess-val" style="color:#2E9E6B;">8.8 / 10</span>
+      </div>
+      <div class="assess-bar-track"><div class="assess-bar-fill bar-green" data-pct="88"></div></div>
+      <span class="assess-note">~2h direct flights, no visa for GCC holders, Bahraini nationals visa-on-arrival</span>
+    </div>
+
+    <div class="assess-row">
+      <div class="assess-label">
+        <span>Food &amp; Dining</span>
+        <span class="assess-val" style="color:#2E6FA8;">8.7 / 10</span>
+      </div>
+      <div class="assess-bar-track"><div class="assess-bar-fill bar-blue" data-pct="87"></div></div>
+      <span class="assess-note">Excellent street food (koshari, ful, konafa), fresh fish in Fayoum, diverse dining</span>
+    </div>
+
+    <div class="assess-row">
+      <div class="assess-label">
+        <span>Family Suitability</span>
+        <span class="assess-val" style="color:#2E6FA8;">8.0 / 10</span>
+      </div>
+      <div class="assess-bar-track"><div class="assess-bar-fill bar-blue" data-pct="80"></div></div>
+      <span class="assess-note">GEM and parks are excellent for families; some sites require walking in heat</span>
+    </div>
+
+    <div class="assess-row">
+      <div class="assess-label">
+        <span>Safety &amp; Comfort</span>
+        <span class="assess-val" style="color:#C9A84C;">7.8 / 10</span>
+      </div>
+      <div class="assess-bar-track"><div class="assess-bar-fill bar-orange" data-pct="78"></div></div>
+      <span class="assess-note">Tourist zones are safe; haggling expected; traffic chaos in Cairo requires patience</span>
+    </div>
+
+    <div class="assess-row">
+      <div class="assess-label">
+        <span>Infrastructure &amp; Logistics</span>
+        <span class="assess-val" style="color:#D4831A;">7.5 / 10</span>
+      </div>
+      <div class="assess-bar-track"><div class="assess-bar-fill bar-amber" data-pct="75"></div></div>
+      <span class="assess-note">GEM + roads improving; Cairo traffic remains a major pain point</span>
+    </div>
+
+  </div>
+
+  <div class="overall-score-box">
+    <div class="overall-num">8.7<sup>/10</sup></div>
+    <div class="overall-details">
+      <h4>Overall Verdict — Highly Recommended</h4>
+      <p>
+        Egypt is one of the world's great travel destinations and exceptional value for Gulf-based travellers.
+        The density of world-class sites within an hour of Giza is unmatched anywhere on Earth.
+        Logistical friction is real but manageable — plan around traffic, book tickets online, travel October–April.
+      </p>
+      <div class="verdict-pills">
+        <span class="verdict-pill vp-green">Exceptional History</span>
+        <span class="verdict-pill vp-green">Great Value</span>
+        <span class="verdict-pill vp-blue">Short Flight</span>
+        <span class="verdict-pill vp-gold">5,000 Years of Sites</span>
+      </div>
+    </div>
+  </div>
+
+</section>
 
 <!-- ══════════════════════════════════════════════
      SECTION 1 — LEAVING BAHRAIN
@@ -1368,6 +1582,21 @@
     const saved = localStorage.getItem('egypt-theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     applyTheme(saved ? saved === 'dark' : prefersDark);
+  })();
+
+  // ── Assessment bar animation ──
+  (function () {
+    const fills = document.querySelectorAll('.assess-bar-fill');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          el.style.width = el.dataset.pct + '%';
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.3 });
+    fills.forEach(f => observer.observe(f));
   })();
 
   // ── Trip filter ──
